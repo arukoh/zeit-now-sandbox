@@ -3,10 +3,12 @@
   "name": "sandbox",
   "builds": [
     { "src": "static/index.html", "use": "@now/html-minifier" },
-    { "src": "static/styles.css", "use": "@now/html-minifier" }
+    { "src": "static/styles.css", "use": "@now/html-minifier" },
+    { "src": "markdown/*.md", "use": "@now/md" }
   ],
   "routes": [
-    { "src": "/", "status": 301, "headers": { "Location": "/static/index.html" } },
-    { "src": "/static", "dest": "/static/index.html" }
+    { "src": "/", "status": 301, "headers": { "Location": "/static" } },
+    { "src": "/static", "dest": "/static/index.html" },
+    { "src": "/markdown", "dest": "/markdown/index.html" }
   ]
 }
